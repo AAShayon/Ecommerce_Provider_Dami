@@ -3,7 +3,8 @@ import 'package:test_commerce/features/shop/screen/cart/widgets/cart_items.dart'
 import 'package:test_commerce/features/shop/screen/checkout/checkout.dart';
 import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:test_commerce/utils/helpers/helper_function.dart';
+ 
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -19,7 +20,14 @@ class CartScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(AppSizes.defaultSpace),
-        child: ElevatedButton(onPressed: ()=>Get.to(()=>const CheckoutScreen()),child: const Text('Checkout \$256')),
+        child: ElevatedButton(
+            // onPressed: ()=>Get.to(()=>const CheckoutScreen())
+          onPressed: ()=>AppHelperFunctions.navigateToScreen(context, const CheckoutScreen())
+            
+            ,
+            
+            
+            child: const Text('Checkout \$256')),
       ) ,
     );
   }

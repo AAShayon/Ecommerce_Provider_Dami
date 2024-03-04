@@ -4,7 +4,6 @@ import 'package:test_commerce/common/widgets/products/products_cards/products_ca
 import 'package:test_commerce/common/widgets/texts/section_heading.dart';
 import 'package:test_commerce/utils/constant/image_strings.dart';
 import 'package:test_commerce/utils/constant/sizes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProductSubCategories extends StatelessWidget {
