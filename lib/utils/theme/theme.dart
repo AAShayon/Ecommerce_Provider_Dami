@@ -39,7 +39,7 @@ static ThemeData darkttheme=ThemeData(
   checkboxTheme: SCheckboxTheme.darkCheckboxTheme,
   bottomSheetTheme: SBottomSheetTheme.darktBottomSheetTheme,
   inputDecorationTheme: STextFormFieldTheme.darkInputDecorationTheme,
-  outlinedButtonTheme: SOutlineButtonTheme.DarkOutlineButtonTheme,
+  outlinedButtonTheme: SOutlineButtonTheme.darkOutlineButtonTheme,
   elevatedButtonTheme: SElevatedButtonTheme.darkElevatedButtonTheme,
 
 );

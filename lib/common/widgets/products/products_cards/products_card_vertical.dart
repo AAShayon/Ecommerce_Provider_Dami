@@ -11,7 +11,6 @@ import 'package:test_commerce/utils/constant/image_strings.dart';
 import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:test_commerce/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class VerticalProductCard extends StatelessWidget {
@@ -21,7 +20,8 @@ class VerticalProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = AppHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () => Get.to(()=> const ProductDetailScreen()),
+      // onTap: () => Get.to(()=> const ProductDetailScreen()),
+      onTap: ()=>AppHelperFunctions.navigateToScreen(context, const ProductDetailScreen()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),

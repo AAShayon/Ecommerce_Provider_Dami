@@ -33,6 +33,9 @@ dependencies:
   shared_preferences: ^2.2.2
   hidable: ^1.0.6
   provider: ^6.1.2
+  firebase_core: ^2.25.5
+  cloud_firestore: ^4.15.6
+  firebase_auth: ^4.17.6
 
   #----------./PACKAGES END-------------#
 dev_dependencies:

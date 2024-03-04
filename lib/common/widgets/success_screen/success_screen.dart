@@ -19,7 +19,7 @@ class SuccessScreen extends StatelessWidget {
           padding: SSpacingStyle.paddingwithAppBarHeight * 2,
           child: Column(
             children: [
-              Image(image: AssetImage(image),width:AppHelperFunctions.screenWidth()*0.6 ,),
+              Image(image: AssetImage(image),width:AppHelperFunctions. screenWidth(context)*0.6 ,),
               const SizedBox(height: AppSizes.spaceBtwSections,),
               ///Title and Subtitle
               Text(title,style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,),

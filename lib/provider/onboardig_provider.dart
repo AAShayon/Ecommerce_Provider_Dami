@@ -1,6 +1,6 @@
 // import'package:test_commerce/features/authentication/screens/login/login.dart';
 // import 'package:flutter/cupertino.dart';
-// import 'package:get/get.dart';
+//  
 //
 // class OnBoardingController extends GetxController{
 //   static OnBoardingController get instance => Get.find();
@@ -61,10 +61,10 @@ class OnBoardingProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void nextPage() {
+  void nextPage(BuildContext context) {
     if (_currentPageIndex == 2) {
       // Get.offAll(const LoginScreen());
-
+   AppHelperFunctions.navigateToScreenAndRemoveUntil(context, const LoginScreen());
 
     } else {
       _currentPageIndex++;

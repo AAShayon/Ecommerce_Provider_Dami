@@ -3,7 +3,6 @@ import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:test_commerce/utils/device/device_utility.dart';
 import 'package:test_commerce/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class AppCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -30,7 +29,8 @@ class AppCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
-                onPressed: () => Get.back(),
+
+                  onPressed: () => Navigator.of(context).pop(),
                 icon: Icon(
                   Iconsax.arrow_left,
                   color: dark ? AppColors.white : AppColors.dark,

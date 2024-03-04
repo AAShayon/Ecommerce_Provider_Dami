@@ -20,7 +20,7 @@ static final lightOutlinedButtonTheme=OutlinedButtonThemeData(
 ///dark
 
 
-  static final DarkOutlineButtonTheme=OutlinedButtonThemeData(
+  static final darkOutlineButtonTheme=OutlinedButtonThemeData(
   style: OutlinedButton.styleFrom(
     elevation: 0,
     side:const  BorderSide(color: Colors.blueAccent),
