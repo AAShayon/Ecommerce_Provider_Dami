@@ -4,7 +4,7 @@ import 'package:test_commerce/utils/constant/text_strings.dart';
 import 'package:test_commerce/utils/helpers/helper_function.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});
 
@@ -14,14 +14,14 @@ class ResetPassword extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
-          IconButton(onPressed:()=>Get.back(), icon: const Icon(CupertinoIcons.clear)),
+          IconButton(onPressed:()=>Navigator.pop(context), icon: const Icon(CupertinoIcons.clear)),
         ],
       ),
       body: SingleChildScrollView(
         child: Padding(padding: const EdgeInsets.all(AppSizes.defaultSpace),
             child:Column(
               children: [
-                Image(image: const AssetImage(AppImages.deliveredEmailIllustration),width:AppHelperFunctions.screenWidth()*0.6 ,),
+                Image(image: const AssetImage(AppImages.deliveredEmailIllustration),width:AppHelperFunctions.screenWidth(context)*0.6 ,),
                 const SizedBox(height: AppSizes.spaceBtwSections,),
                 ///Title and Subtitle
                 Text(AppTexts.changeYourPasswordTitle,style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,),

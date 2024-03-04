@@ -2,8 +2,8 @@ import'package:test_commerce/features/authentication/screens/password_config/res
 import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:test_commerce/utils/constant/text_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:test_commerce/utils/helpers/helper_function.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
@@ -30,7 +30,7 @@ class ForgetPassword extends StatelessWidget {
           const SizedBox(height: AppSizes.spaceBtwSections * 2 ),
         ///Submit button
           SizedBox(width: double.infinity,child: ElevatedButton(
-            onPressed: ()=>Get.to(()=>const ResetPassword()),
+            onPressed: (){AppHelperFunctions.navigateToScreen(context,const ResetPassword());},
             child: const Text(AppTexts.submit),
           ),)
 

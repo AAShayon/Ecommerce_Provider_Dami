@@ -1,5 +1,5 @@
 import 'package:provider/provider.dart';
-import'package:test_commerce/features/authentication/controllers/onboardig_controller.dart';
+import'package:test_commerce/provider/onboardig_provider.dart';
 import 'package:test_commerce/utils/constant/colors.dart';
 import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:test_commerce/utils/device/device_utility.dart';
@@ -38,7 +38,7 @@ class OnBoardingNextButton extends StatelessWidget {
       bottom: AppDeviceUtils.getBottomNavigationBarHeight(),
       child: ElevatedButton(
         onPressed: () async =>
-            Provider.of<OnBoardingProvider>(context, listen: false).nextPage(),
+            Provider.of<OnBoardingProvider>(context, listen: false).nextPage(context),
         style: ElevatedButton.styleFrom(
           shape: const CircleBorder(),
           backgroundColor: dark ? AppColors.primary : Colors.black,

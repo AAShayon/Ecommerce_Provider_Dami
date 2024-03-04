@@ -3,8 +3,8 @@ import 'package:test_commerce/features/authentication/screens/signup/widgets/ter
 import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:test_commerce/utils/constant/text_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:test_commerce/utils/helpers/helper_function.dart';
 
 class SSIgnupForm extends StatelessWidget {
   const SSIgnupForm({
@@ -78,7 +78,12 @@ class SSIgnupForm extends StatelessWidget {
           const SizedBox(height: AppSizes.spaceBtwSections,),
           ///Sign up Button
           SizedBox(width: double.infinity,
-            child: ElevatedButton(onPressed: () =>Get.to(()=> const VerifyEmailScreen()),child: const Text(AppTexts.createAccount),
+            child: ElevatedButton(onPressed: () {
+              // Get.to(()=> const VerifyEmailScreen())
+              AppHelperFunctions.navigateToScreen(context, const VerifyEmailScreen())
+              
+              ;
+            },child: const Text(AppTexts.createAccount),
             ),
           )
         ],
