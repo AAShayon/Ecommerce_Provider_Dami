@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "304024926413",
+    "firebase_url": "https://shop-d79ed-default-rtdb.firebaseio.com",
+    "project_id": "shop-d79ed",
+    "storage_bucket": "shop-d79ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304024926413:android:49e4aaa82a8931ed671184",
+        "android_client_info": {
+          "package_name": "com.example.testdesign"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApHm9b8gK9i8gEg-PE-7IeXX8LqE_hEP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304024926413:android:fd7d43a327c4e44d671184",
+        "android_client_info": {
+          "package_name": "com.shayon.firebase.firebase_operation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApHm9b8gK9i8gEg-PE-7IeXX8LqE_hEP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
