@@ -10,8 +10,9 @@ import 'package:test_commerce/features/shop/screen/order/order.dart';
 import 'package:test_commerce/utils/constant/colors.dart';
 import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+ 
 import 'package:iconsax/iconsax.dart';
+import 'package:test_commerce/utils/helpers/helper_function.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -34,7 +35,11 @@ class SettingsScreen extends StatelessWidget {
                         .apply(color: AppColors.white),
                   ),
                 ),
-              UserProfileTile(onPressed:()=> Get.to(()=>const ProfileScreen())),
+              UserProfileTile(
+                  // onPressed:()=> Get.to(()=>const ProfileScreen())),
+                onPressed:()=>AppHelperFunctions.navigateToScreen(context, const ProfileScreen())),
+
+
                 const SizedBox(height: AppSizes.spaceBtwSections),
               ],
             )),
@@ -49,9 +54,9 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(
                     height: AppSizes.spaceBtwItems,
                   ),
-                  SettingsMenuTile(title: 'Address', subTitle: 'Set Shopping delivery address', icon: Iconsax.safe_home,onTap: ()=>Get.to(()=>const UserAddressScreen()),),
-                  SettingsMenuTile(title: 'My Cart', subTitle: 'Add ,remove products and move to checkout', icon: Iconsax.shopping_cart,onTap:()=>Get.to(()=>const CartScreen()),),
-                  SettingsMenuTile(title: 'My Order', subTitle: 'In progress and Completed Orders', icon: Iconsax.bag_tick,onTap: ()=>Get.to(()=>const ProductOrderScreen()),),
+                  SettingsMenuTile(title: 'Address', subTitle: 'Set Shopping delivery address', icon: Iconsax.safe_home,onTap: ()=>AppHelperFunctions.navigateToScreen(context, const UserAddressScreen())),
+                  SettingsMenuTile(title: 'My Cart', subTitle: 'Add ,remove products and move to checkout', icon: Iconsax.shopping_cart,onTap: ()=>AppHelperFunctions.navigateToScreen(context, const CartScreen())),
+                  SettingsMenuTile(title: 'My Order', subTitle: 'In progress and Completed Orders', icon: Iconsax.bag_tick,onTap: ()=>AppHelperFunctions.navigateToScreen(context, const ProductOrderScreen())),
                   SettingsMenuTile(title: 'Bank Account', subTitle: 'Withdraw balance to registered bank account', icon: Iconsax.bank,onTap: (){},),
                   SettingsMenuTile(title: 'My Coupons', subTitle: 'List of all the discounted coupons', icon: Iconsax.discount_shape,onTap: (){},),
                   SettingsMenuTile(title: 'Notifications', subTitle: 'Set any kind of notification message', icon: Iconsax.notification,onTap: (){},),

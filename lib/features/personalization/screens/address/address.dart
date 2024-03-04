@@ -4,8 +4,9 @@ import 'package:test_commerce/features/personalization/screens/address/widget/si
 import 'package:test_commerce/utils/constant/colors.dart';
 import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+ 
 import 'package:iconsax/iconsax.dart';
+import 'package:test_commerce/utils/helpers/helper_function.dart';
 
 class UserAddressScreen extends StatelessWidget {
   const UserAddressScreen({super.key});
@@ -14,7 +15,8 @@ class UserAddressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Get.to(() => const AddNewAddress()),
+        // onPressed: () => Get.to(() => const AddNewAddress())
+        onPressed: ()=>AppHelperFunctions.navigateToScreen(context, const AddNewAddress()),
         backgroundColor: AppColors.primary,
         child: const Icon(
           Iconsax.add,
