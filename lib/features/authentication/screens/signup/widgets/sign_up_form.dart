@@ -1,5 +1,7 @@
+import 'package:provider/provider.dart';
 import'package:test_commerce/features/authentication/screens/signup/verify_email.dart';
 import 'package:test_commerce/features/authentication/screens/signup/widgets/terms_condition.dart';
+import 'package:test_commerce/provider/auth_provider.dart';
 import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:test_commerce/utils/constant/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,15 @@ class SSIgnupForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final dark= SHelperFunctions.isDarkMode(context);
+    final authProvider = Provider.of<AuthProvider>(context);
+
+    // Define TextControllers for form fields
+    final firstNameController = TextEditingController();
+    final lastNameController = TextEditingController();
+    final usernameController = TextEditingController();
+    final emailController = TextEditingController();
+    final phoneController = TextEditingController();
+    final passwordController = TextEditingController();
     return Form(
       child: Column(
         children: [
@@ -23,6 +33,7 @@ class SSIgnupForm extends StatelessWidget {
               Expanded(
                 child: TextFormField(
                   expands: false ,//
+                  controller: firstNameController,
                   decoration: const InputDecoration(
                       labelText: AppTexts.firstName,
                       prefixIcon: Icon(Iconsax.user)),
@@ -31,7 +42,7 @@ class SSIgnupForm extends StatelessWidget {
               const SizedBox(width: AppSizes.spaceBtwInputFields),
               Expanded(
                 child: TextFormField(
-                  expands: false ,
+                  expands: false ,controller: lastNameController,
                   decoration: const InputDecoration(
                       labelText: AppTexts.lastName,
                       prefixIcon: Icon(Iconsax.user)),
@@ -43,6 +54,7 @@ class SSIgnupForm extends StatelessWidget {
           ///User Name
           TextFormField(
             expands: false,
+            controller: usernameController,
             decoration: const InputDecoration(
               labelText: AppTexts.username,prefixIcon: Icon(Iconsax.user_edit),
             ),
@@ -50,7 +62,7 @@ class SSIgnupForm extends StatelessWidget {
           const SizedBox(height:AppSizes.spaceBtwInputFields ,),
           ///Email
           TextFormField(
-            expands: false,
+            expands: false,controller: emailController,
             decoration: const InputDecoration(
               labelText: AppTexts.email ,prefixIcon: Icon(Iconsax.direct),
             ),
@@ -58,7 +70,7 @@ class SSIgnupForm extends StatelessWidget {
           const SizedBox(height:AppSizes.spaceBtwInputFields ,),
           ///phone
           TextFormField(
-            expands: false,
+            expands: false,controller: phoneController,
             decoration: const InputDecoration(
               labelText: AppTexts.phoneNo ,prefixIcon: Icon(Iconsax.call),
             ),
@@ -66,7 +78,7 @@ class SSIgnupForm extends StatelessWidget {
           const SizedBox(height:AppSizes.spaceBtwInputFields ,),
           /// password
           TextFormField(
-            expands: false,
+            expands: false,controller: passwordController,
             decoration: const InputDecoration(
               labelText: AppTexts.password ,prefixIcon: Icon(Icons.password),
               suffixIcon: Icon(Iconsax.eye_slash),
@@ -78,8 +90,16 @@ class SSIgnupForm extends StatelessWidget {
           const SizedBox(height: AppSizes.spaceBtwSections,),
           ///Sign up Button
           SizedBox(width: double.infinity,
-            child: ElevatedButton(onPressed: () {
+            child: ElevatedButton(onPressed: () async {
               // Get.to(()=> const VerifyEmailScreen())
+              final user = await authProvider.signUpWithEmailAndPassword(
+                firstNameController.text,
+                lastNameController.text,
+                usernameController.text,
+                emailController.text,
+                phoneController.text,
+                passwordController.text,
+              );
               AppHelperFunctions.navigateToScreen(context, const VerifyEmailScreen())
               
               ;
