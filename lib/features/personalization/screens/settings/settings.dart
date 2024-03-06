@@ -1,12 +1,16 @@
+import 'package:provider/provider.dart';
 import'package:test_commerce/common/widgets/appbar/appbar.dart';
 import 'package:test_commerce/common/widgets/containers/app_primary_header_container.dart';
 import 'package:test_commerce/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:test_commerce/common/widgets/list_tile/user_profile_tile.dart';
 import 'package:test_commerce/common/widgets/texts/section_heading.dart';
+import 'package:test_commerce/features/authentication/screens/signup/signup.dart';
 import 'package:test_commerce/features/personalization/screens/address/address.dart';
 import 'package:test_commerce/features/personalization/screens/profile/profile.dart';
 import 'package:test_commerce/features/shop/screen/cart/cart.dart';
+import 'package:test_commerce/features/shop/screen/home/home.dart';
 import 'package:test_commerce/features/shop/screen/order/order.dart';
+import 'package:test_commerce/provider/auth_provider.dart';
 import 'package:test_commerce/utils/constant/colors.dart';
 import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +23,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthenticationProvider>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -75,7 +80,10 @@ class SettingsScreen extends StatelessWidget {
 const SizedBox(height: AppSizes.spaceBtwSections,),
                   SizedBox(
                     width: double.infinity,
-                    child: OutlinedButton(onPressed: (){}, child: const Text('Log Out')),
+                    child: OutlinedButton(onPressed: () async {
+                      await authProvider.signOut();
+                      AppHelperFunctions.navigateToScreenAndRemoveUntil(context, const SignupScreen());
+                    }, child: const Text('Log Out')),
                   ),
                   const SizedBox(height: AppSizes.spaceBtwSections * 2.5,)
                 ],

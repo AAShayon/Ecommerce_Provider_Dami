@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 import 'package:test_commerce/bottom_navigation.dart';
 import 'package:test_commerce/features/authentication/screens/password_config/forget_password.dart';
 import 'package:test_commerce/features/authentication/screens/signup/signup.dart';
+import 'package:test_commerce/provider/auth_provider.dart';
 import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:test_commerce/utils/constant/text_strings.dart';
 import 'package:test_commerce/utils/helpers/helper_function.dart';
@@ -14,6 +17,9 @@ class SLoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthenticationProvider>(context);
+    final emailController = TextEditingController();
+    final passwordController=TextEditingController();
     final dark = AppHelperFunctions.isDarkMode(context);
     return Form(
       child: Padding(
@@ -22,6 +28,7 @@ class SLoginForm extends StatelessWidget {
           children: [
             ///Email
             TextFormField(
+              controller: emailController,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Iconsax.direct_right),
                 labelText: AppTexts.email,
@@ -33,6 +40,7 @@ class SLoginForm extends StatelessWidget {
 
             ///Password
             TextFormField(
+              controller: passwordController,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.password_check),
                   labelText: AppTexts.password,
@@ -70,8 +78,20 @@ class SLoginForm extends StatelessWidget {
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: (){
-                          AppHelperFunctions.navigateToScreen(context,const NavigationMenu());
+                    onPressed: () async {
+                      final String email=emailController.text.trim();
+                      final String password=passwordController.text.trim();
+                      // // if (!mounted) return;
+                      // final currentContext = context;
+                      User? user = await authProvider.signInWithEmailOrPhoneAndPassword(email, password);
+                      if(user !=null){
+                        AppHelperFunctions.navigateToScreen(context,const NavigationMenu());
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Authentication failed')),
+                        );
+                      }
+                          //
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: dark ? Colors.orangeAccent : Colors.blueAccent),

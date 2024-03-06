@@ -18,7 +18,7 @@ class AppTexts {
   ///-Form text
   static const String submit="Submit";
   static const String appName="S-Store";
-  static const String Scontinue="continue";
+  static const String acontinue="continue";
   static const String done="done";
 
 
@@ -44,6 +44,7 @@ class AppTexts {
  static const String verificationCode="Verification Code";
  static const String resendEmail="Resend Email";
  static const String resendEmailIn="Resend email in";
+ static const String otp="Put Your Otp";
 
  ///--Authentication Headings Text
   static const String loginTitle="Wellcome back";

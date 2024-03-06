@@ -1,4 +1,6 @@
 import 'package:provider/provider.dart';
+import 'package:test_commerce/provider/auth_provider.dart';
+import 'package:test_commerce/provider/firestore_service.dart';
 import 'package:test_commerce/provider/onboardig_provider.dart';
 import 'package:test_commerce/features/authentication/screens/onBoarding/onboarding.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +38,8 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (context)=>LandingPageProvider()),
         ChangeNotifierProvider(create: (context) => OnBoardingProvider()),
         ChangeNotifierProvider(create: (context) => CarouselHomeProvider()),
+        ChangeNotifierProvider(create: (context)=> AuthenticationProvider()),
+        ChangeNotifierProvider(create: (context)=> FirestoreProvider()),
         // Add more providers as needed
       ],
       child: MaterialApp(
