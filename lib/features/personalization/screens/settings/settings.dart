@@ -8,7 +8,6 @@ import 'package:test_commerce/features/authentication/screens/signup/signup.dart
 import 'package:test_commerce/features/personalization/screens/address/address.dart';
 import 'package:test_commerce/features/personalization/screens/profile/profile.dart';
 import 'package:test_commerce/features/shop/screen/cart/cart.dart';
-import 'package:test_commerce/features/shop/screen/home/home.dart';
 import 'package:test_commerce/features/shop/screen/order/order.dart';
 import 'package:test_commerce/provider/auth_provider.dart';
 import 'package:test_commerce/utils/constant/colors.dart';

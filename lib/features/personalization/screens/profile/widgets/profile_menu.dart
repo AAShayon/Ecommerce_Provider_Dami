@@ -6,13 +6,13 @@ class ProfileMenu extends StatelessWidget {
   const ProfileMenu({
     super.key,
     this.icon=Iconsax.arrow_right_34,
-    required this.onPressed,
+    this.onPressed,
     required this.title,
     required this.value,
   });
 
   final IconData icon;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final String title, value;
 
   @override

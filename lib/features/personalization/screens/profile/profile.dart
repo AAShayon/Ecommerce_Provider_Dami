@@ -1,8 +1,10 @@
+import 'package:provider/provider.dart';
 import'package:test_commerce/common/widgets/appbar/appbar.dart';
 import 'package:test_commerce/common/widgets/images/circular_image.dart';
 import 'package:test_commerce/common/widgets/texts/section_heading.dart';
 import 'package:test_commerce/features/authentication/screens/login/login.dart';
 import 'package:test_commerce/features/personalization/screens/profile/widgets/profile_menu.dart';
+import 'package:test_commerce/provider/auth_provider.dart';
 import 'package:test_commerce/utils/constant/image_strings.dart';
 import 'package:test_commerce/utils/constant/sizes.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthenticationProvider>(context);
     return Scaffold(
       appBar: const AppCustomAppBar(title: Text('Profile'), showBackArrow: true,),
       body: SingleChildScrollView(
@@ -33,18 +36,18 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: AppSizes.spaceBtwItems ,),
              const AppSectionHeading(title: 'Profile Information',showActionButton: false,),
               const SizedBox(height: AppSizes.spaceBtwItems,),
-              ProfileMenu(title: 'Name',value: 'Ismail Hatela',onPressed: (){},),
-              ProfileMenu(title: 'User Name',value: 'Hatela Vai 69',onPressed: (){},),
+              ProfileMenu(title: 'Name',value: authProvider.currentUser!.displayName!),
+              ProfileMenu(title: 'User Name',value: authProvider.currentUser!.displayName!),
               const SizedBox(height: AppSizes.spaceBtwItems ,),
               const Divider(),
               const SizedBox(height: AppSizes.spaceBtwItems ,),
               const AppSectionHeading(title: 'Personal Infromation',showActionButton: false,),
               const SizedBox(height: AppSizes.spaceBtwItems,),
-              ProfileMenu(onPressed: (){}, title: 'User ID', value: '000069',icon: Iconsax.copy),
-              ProfileMenu(onPressed: (){}, title: 'E-mail', value: 'ismail.hatela@gmail.com'),
-              ProfileMenu(onPressed: (){}, title: 'Phone Number', value: '+8801977339340'),
-              ProfileMenu(onPressed: (){}, title: 'Gender', value: 'male'),
-              ProfileMenu(onPressed: (){}, title: 'Date of Birth', value: '1 may ,1998'),
+              ProfileMenu(onPressed: (){}, title: 'User ID', value: authProvider.currentUser!.uid,icon: Iconsax.copy),
+              ProfileMenu(onPressed: (){}, title: 'E-mail', value: authProvider.currentUser!.email!),
+              ProfileMenu(onPressed: (){}, title: 'Phone Number', value:''),
+              ProfileMenu(onPressed: (){}, title: 'Gender', value: 'Future'),
+              ProfileMenu(onPressed: (){}, title: 'Date of Birth', value: 'Future'),
               const Divider(),
               const SizedBox(height: AppSizes.spaceBtwItems,),
               Center(
