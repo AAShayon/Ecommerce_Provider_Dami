@@ -1,4 +1,4 @@
-import'package:test_commerce/bottom_navigation.dart';
+import 'package:test_commerce/bottom_navigation.dart';
 import 'package:test_commerce/features/authentication/screens/password_config/forget_password.dart';
 import 'package:test_commerce/features/authentication/screens/signup/signup.dart';
 import 'package:test_commerce/utils/constant/sizes.dart';
